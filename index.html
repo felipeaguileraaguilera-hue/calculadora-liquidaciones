@@ -253,7 +253,6 @@
       ps.forEach(p=>{h+='<th>'+fd(p)+'€</th>'});h+='</tr></thead><tbody>';
       rs.forEach(r=>{h+='<tr><td class="sticky">'+r+'%</td>';ps.forEach(p=>{const v=ck(r,p);h+='<td class="'+(v<0?'color-danger':v>1?'color-success':'')+'">'+fd(v)+'</td>'});h+='</tr>'});
       h+='</tbody></table></div>';$('tableArea').innerHTML=h;
-      $('tableFooter').textContent='Valores en €/kg de aceituna · Maquila: '+fd(maq)+'€ · Dto. rdto: '+String(dto).replace('.',',')+'%';
     }
 
     hI($('inRdtoMin'),uT);hI($('inRdtoMax'),uT);hI($('inPrecioMin'),uT);hI($('inPrecioMax'),uT);
@@ -265,8 +264,7 @@
       if($('pinField').value===PIN){$('adminPin').classList.add('hidden');$('adminConfig').classList.remove('hidden');$('admMaq').value=maq;$('admDto').value=dto;uAS()}
       else{$('pinField').classList.add('error');$('pinError').classList.remove('hidden');$('pinField').value='';setTimeout(()=>$('pinField').focus(),50)}
     }
-    function uAS(){const m=parseFloat($('admMaq').value)||0,d=parseFloat($('admDto').value)||0;$('admSum').innerHTML='<strong>Valores actuales:</strong><br>Maquila: '+fd(m)+' €/kg · Descuento: '+String(d).replace('.',',')+' %'}
-    function sA(){maq=parseFloat($('admMaq').value)||.06;dto=parseFloat($('admDto').value)||3.5;localStorage.setItem('at_m',maq);localStorage.setItem('at_d',dto);cA();uR();uT()}
+    
 
     $('btnAdmin').onclick=oA;
     $('btnPinOk').onclick=cP;
